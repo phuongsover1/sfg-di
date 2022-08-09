@@ -15,9 +15,11 @@ public class SfgDiApplication {
 
 		MyController myController = context.getBean("myController", MyController.class);
 
+/*
 		I18NController i18NController = context.getBean("i18NController", I18NController.class);
 		System.out.println("----- I18N Greeting");
 		System.out.println(i18NController.sayHello());
+*/
 
 		System.out.println("----- Primary ");
 		System.out.println(myController.sayHello());
