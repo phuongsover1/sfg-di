@@ -1,0 +1,10 @@
+# this is a comment
+
+name: John
+
+names: #Comment
+  - John
+  - Paul
+  - Ringo
+
+pound_sign: "#"
