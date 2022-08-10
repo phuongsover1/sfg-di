@@ -5,6 +5,7 @@ import guru.springframework.sfgdi.controllers.MyController;
 import guru.springframework.sfgdi.controllers.PropertyInjectedController;
 import guru.springframework.sfgdi.controllers.SetterInjectionController;
 import guru.springframework.sfgdi.examplebeans.FakeDataSource;
+import guru.springframework.sfgdi.examplebeans.FakeJMSBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -47,6 +48,12 @@ public class SfgDiApplication {
 		System.out.println("username: " + fakeDataSource.getUsername());
 		System.out.println("password: " + fakeDataSource.getPassword());
 		System.out.println("dbUrl: " + fakeDataSource.getDbUrl());
+
+		FakeJMSBroker fakeJMSBroker = (FakeJMSBroker) context.getBean(FakeJMSBroker.class);
+		System.out.println("Fake JMS Broker ----");
+		System.out.println("username: " + fakeJMSBroker.getUsername());
+		System.out.println("password: " + fakeJMSBroker.getPassword());
+		System.out.println("dbUrl: " + fakeJMSBroker.getDbUrl());
 	}
 
 
