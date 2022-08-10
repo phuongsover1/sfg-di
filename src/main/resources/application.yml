@@ -3,3 +3,12 @@ guru:
     username: jms_username
     password: jms_password
     dbUrl: jms_dbUrl
+
+---
+spring:
+  profiles:
+    active: JP
+
+guru:
+  jms:
+    password: jms_password **** IN JAPAN
