@@ -1,6 +1,10 @@
 package guru.springframework.sfgdi;
 
-import guru.springframework.sfgdi.controllers.*;
+import guru.springframework.sfgdi.controllers.ConstructorInjectionController;
+import guru.springframework.sfgdi.controllers.MyController;
+import guru.springframework.sfgdi.controllers.PropertyInjectedController;
+import guru.springframework.sfgdi.controllers.SetterInjectionController;
+import guru.springframework.sfgdi.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -37,6 +41,12 @@ public class SfgDiApplication {
 		System.out.println("----- Constructor");
 		ConstructorInjectionController constructorInjectionController = context.getBean("constructorInjectionController", ConstructorInjectionController.class);
 		System.out.println(constructorInjectionController.sayGreeting());
+
+		FakeDataSource fakeDataSource = (FakeDataSource) context.getBean(FakeDataSource.class);
+		System.out.println("Fake Data Source ----");
+		System.out.println("username: " + fakeDataSource.getUsername());
+		System.out.println("password: " + fakeDataSource.getPassword());
+		System.out.println("dbUrl: " + fakeDataSource.getDbUrl());
 	}
 
 
