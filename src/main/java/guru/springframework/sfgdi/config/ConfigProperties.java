@@ -3,12 +3,19 @@ package guru.springframework.sfgdi.config;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 @Configuration
 @ConfigurationProperties(prefix = "mail")
 public class ConfigProperties {
+  @Length(max = 2, min = 1)
   private String hostname;
   private int port;
   private String from;
