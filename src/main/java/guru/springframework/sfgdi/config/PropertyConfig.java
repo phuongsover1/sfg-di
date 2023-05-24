@@ -7,15 +7,22 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @ConfigurationProperties(prefix = "guru")
 @Configuration
+@PropertySource({ "classpath:datasource.properties", "classpath:application.properties" })
 public class PropertyConfig {
 	String username;
 
 	String password;
 
 	String dbUrl;
+
+	@Value("${user.name}")
+	String name;
+	@Value("${user.lastName}")
+	String lastName;
 
 	@Value("${guru.jms.username}")
 	String jmsUsername;
@@ -46,8 +53,9 @@ public class PropertyConfig {
 
 	@Override
 	public String toString() {
-		return "PropertyConfig [username=" + username + ", password=" + password + ", dbUrl=" + dbUrl + ", jmsUsername="
-				+ jmsUsername + ", jmsPassword=" + jmsPassword + ", jmsDbUrl=" + jmsDbUrl + "]";
+		return "PropertyConfig [username=" + username + ", password=" + password + ", dbUrl=" + dbUrl + ", name=" + name
+				+ ", lastName=" + lastName + ", jmsUsername=" + jmsUsername + ", jmsPassword=" + jmsPassword + ", jmsDbUrl="
+				+ jmsDbUrl + "]";
 	}
 
 	@Bean

@@ -15,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 @Configuration
 @ConfigurationProperties(prefix = "mail")
 public class ConfigProperties {
-  @Length(max = 2, min = 1)
   private String hostname;
   private int port;
   private String from;
